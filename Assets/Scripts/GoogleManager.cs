@@ -13,20 +13,21 @@ public class GoogleManager : MonoBehaviour
 
     void Awake()
     {
-        PlayGamesPlatform.InitializeInstance(new PlayGamesClientConfiguration.Builder().Build());
+                PlayGamesPlatform.InitializeInstance(new PlayGamesClientConfiguration.Builder().Build());
         PlayGamesPlatform.DebugLogEnabled = true;
         PlayGamesPlatform.Activate();
     }
     void Start()
     {
-        loginbtn = GameObject.Find("logIn").GetComponent<Button>();
-        loginbtn.onClick.AddListener(OnLogin);
 
-        logoutbtn = GameObject.Find("logOut").GetComponent<Button>();
-        logoutbtn.onClick.AddListener(OnLogOut);
+        // loginbtn = GameObject.Find("logIn").GetComponent<Button>();
+        // loginbtn.onClick.AddListener(OnLogin);
 
-        leaderBoardbtn = GameObject.Find("Ranking").GetComponent<Button>();
-        leaderBoardbtn.onClick.AddListener(OnShowLeaderBoard);
+        // logoutbtn = GameObject.Find("logOut").GetComponent<Button>();
+        // logoutbtn.onClick.AddListener(OnLogOut);
+
+        // leaderBoardbtn = GameObject.Find("Ranking").GetComponent<Button>();
+        // leaderBoardbtn.onClick.AddListener(OnShowLeaderBoard);
     }
 
     public void OnLogin()
