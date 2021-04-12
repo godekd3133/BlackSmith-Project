@@ -4,7 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
- 
+
 public class GoogleManager : MonoBehaviour
 {
     Button loginbtn;
@@ -13,7 +13,7 @@ public class GoogleManager : MonoBehaviour
 
     void Awake()
     {
-                PlayGamesPlatform.InitializeInstance(new PlayGamesClientConfiguration.Builder().Build());
+        PlayGamesPlatform.InitializeInstance(new PlayGamesClientConfiguration.Builder().Build());
         PlayGamesPlatform.DebugLogEnabled = true;
         PlayGamesPlatform.Activate();
     }
@@ -57,7 +57,8 @@ public class GoogleManager : MonoBehaviour
     public void OnShowLeaderBoard()
     {
         // 1000점을 등록
-        Social.ReportScore(1000, GPGSIds.leaderboard_ranking, (bool bSuccess) =>
+
+        Social.ReportScore(123, GPGSIds.leaderboard_ranking, (bool bSuccess) =>
         {
             if (bSuccess)
             {
