@@ -17,12 +17,6 @@ public class AdsManager : MonoBehaviour
 
     private RewardedAd rewardedAd;
 
-    public AdsManager(RewardedAd rewardedAd)
-    {
-
-        this.rewardedAd = rewardedAd;
-    }
-
     private bool rewarded = false;
 
     public Button loadbtn;
@@ -31,15 +25,26 @@ public class AdsManager : MonoBehaviour
     {
         //ca-app-pub-3751333748072855~9583494717
         MobileAds.Initialize("ca-app-pub-3940256099942544~3347511713");
+        print("1");
+        rewardedAd = new RewardedAd(rewardTestID);
+        AdRequest request = new AdRequest.Builder().Build();
+        print("2");
+        rewardedAd.LoadAd(request); // 광고 로드
+        print("3");
 
+        rewardedAd.OnUserEarnedReward += HandleUserEarnedReward;
+        // 사용자가 광고를 끝까지 시청했을 때
+        rewardedAd.OnAdClosed += HandleRewardedAdClosed;
+        // 사용자가 광고를 중간에 닫았을 때
 
+        print("4");
 
         //rewardedAd.OnUserEarnedReward += HandleUserEarnedReward;
         // 사용자가 광고를 끝까지 시청했을 때
         // rewardedAd.OnAdClosed += HandleRewardedAdClosed;
         // 사용자가 광고를 중간에 닫았을 때
 
-        print("ASdsa");
+        print("완료--");
         // loadbtn = GameObject.Find("Ruby").GetComponent<Button>();
         // loadbtn.onClick.AddListener(CreateAndLoadRewardedAd);
     }
@@ -54,13 +59,11 @@ public class AdsManager : MonoBehaviour
 
     public void UserChoseToWatchAd()
     {
-        rewardedAd = new RewardedAd(rewardTestID);
 
-        AdRequest request = new AdRequest.Builder().Build();
-        rewardedAd.LoadAd(request); // 광고 로드
 
         if (rewardedAd.IsLoaded()) // 광고가 로드 되었을 때
         {
+            print("5");
 
             rewardedAd.Show(); // 광고 보여주기
         }
