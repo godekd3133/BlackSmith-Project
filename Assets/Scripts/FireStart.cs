@@ -18,12 +18,17 @@ public class FireStart : MonoBehaviour
 
     public Text RubyCountText;
     public int rubyCount;
-
+    private void OnApplicationQuit()
+    {
+        PlayerPrefs.SetInt("Ruby", rubyCount);
+        PlayerPrefs.SetInt("Wood", woodCount);
+    }
 
     void Start()
     {
         woodCountActive = true;
-        rubyCount = 2;
+        rubyCount = PlayerPrefs.GetInt("Ruby", 2);
+        woodCount = PlayerPrefs.GetInt("Wood", 0);
 
     }
 
@@ -51,9 +56,9 @@ public class FireStart : MonoBehaviour
     {
         if (woodCountActive == false)
         {
-        yield return new WaitForSeconds(10);
-        woodCountDown();
-        woodCountActive = true;
+            yield return new WaitForSeconds(10);
+            woodCountDown();
+            woodCountActive = true;
         }
     }
 

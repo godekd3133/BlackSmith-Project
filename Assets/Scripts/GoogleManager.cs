@@ -10,6 +10,17 @@ public class GoogleManager : MonoBehaviour
     Button loginbtn;
     Button logoutbtn;
     Button leaderBoardbtn;
+    public HpSlider damage1;
+    public HpSlider damage2;
+    public HpSlider damage3;
+    public HpSlider damage4;
+    public HpSlider damage5;
+
+    public int getDamage(HpSlider damage)
+    {
+
+        return (int)(damage.damUpaxefl + damage.damUpgoldfl + damage.damUpredfl + damage.damUpsilverfl);
+    }
 
     void Awake()
     {
@@ -57,8 +68,8 @@ public class GoogleManager : MonoBehaviour
     public void OnShowLeaderBoard()
     {
         // 1000점을 등록
-
-        Social.ReportScore(123, GPGSIds.leaderboard_ranking, (bool bSuccess) =>
+        float score = getDamage(damage1) + getDamage(damage2) + getDamage(damage3) + getDamage(damage4) + getDamage(damage5);
+        Social.ReportScore((int)score, GPGSIds.leaderboard_ranking, (bool bSuccess) =>
         {
             if (bSuccess)
             {

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ShareManager : MonoBehaviour
 {
-    private const string subject = "원하는 제목";
+    private const string subject = "BlackSmithProject";
     private const string body = "이곳에 url 넣기";
 
     public void Share()
@@ -23,5 +23,6 @@ public class ShareManager : MonoBehaviour
 			currentActivity.Call("startActivity", jChooser);
 		}
 #endif
+        GameObject.Find("BigTree").GetComponent<FireStart>().rubyCount = GameObject.Find("BigTree").GetComponent<FireStart>().rubyCount + 5;
     }
 }

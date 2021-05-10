@@ -9,7 +9,7 @@ public class HpSlider : MonoBehaviour
     public Slider slHp;
     public float hp;
     public float hpFull;
-
+    public int index;
     public GameObject hotSteam;
 
 
@@ -24,8 +24,16 @@ public class HpSlider : MonoBehaviour
     public Text damUpRedSwordText;
     public Text damUpSilverSwordText;
     public Text damUpAxeText;
+    private void OnApplicationQuit()
+    {
+        PlayerPrefs.SetFloat($"{index}_hp", hp);
+        PlayerPrefs.SetFloat($"{index}_hpFull", hpFull);
+        PlayerPrefs.SetFloat($"{index}_damUpgoldfl", damUpgoldfl);
+        PlayerPrefs.SetFloat($"{index}_damUpredfl", damUpredfl);
+        PlayerPrefs.SetFloat($"{index}_damUpsilverfl", damUpsilverfl);
+        PlayerPrefs.SetFloat($"{index}_damUpaxefl", damUpaxefl);
+    }
 
-    
 
 
 
@@ -36,8 +44,13 @@ public class HpSlider : MonoBehaviour
     void Start()
     {
         slHp = GetComponent<Slider>();
-        hp = 0f;
-        hpFull = 100f;
+        hp = PlayerPrefs.GetFloat($"{index}_hp", 0);
+        hpFull = PlayerPrefs.GetFloat($"{index}_hpFull", 100);
+        damUpgoldfl = PlayerPrefs.GetFloat($"{index}_damUpgoldfl", 0);
+        damUpredfl = PlayerPrefs.GetFloat($"{index}_damUpredfl", 0);
+        damUpsilverfl = PlayerPrefs.GetFloat($"{index}_damUpsilverfl", 0);
+        damUpaxefl = PlayerPrefs.GetFloat($"{index}_damUpaxefl", 0);
+
 
         InvokeRepeating("ItemDamageUp1", 0.2f, 0.2f);
         InvokeRepeating("ItemDamageUp2", 0.2f, 0.2f);
@@ -171,7 +184,7 @@ public class HpSlider : MonoBehaviour
             }
         }
 
-         if (GameObject.Find("Temperature2").GetComponent<HpSlider>().hp >= 100)
+        if (GameObject.Find("Temperature2").GetComponent<HpSlider>().hp >= 100)
         {
             try
             {
@@ -187,7 +200,7 @@ public class HpSlider : MonoBehaviour
             }
         }
 
-         if (GameObject.Find("Temperature3").GetComponent<HpSlider>().hp >= 100)
+        if (GameObject.Find("Temperature3").GetComponent<HpSlider>().hp >= 100)
         {
             try
             {
@@ -203,7 +216,7 @@ public class HpSlider : MonoBehaviour
             }
         }
 
-         if (GameObject.Find("Temperature4").GetComponent<HpSlider>().hp >= 100)
+        if (GameObject.Find("Temperature4").GetComponent<HpSlider>().hp >= 100)
         {
             try
             {
@@ -219,7 +232,7 @@ public class HpSlider : MonoBehaviour
             }
         }
 
-         if (GameObject.Find("Temperature5").GetComponent<HpSlider>().hp >= 100)
+        if (GameObject.Find("Temperature5").GetComponent<HpSlider>().hp >= 100)
         {
             try
             {
@@ -339,7 +352,7 @@ public class HpSlider : MonoBehaviour
             }
         }
 
-         if (GameObject.Find("Temperature2").GetComponent<HpSlider>().hp >= 100)
+        if (GameObject.Find("Temperature2").GetComponent<HpSlider>().hp >= 100)
         {
             try
             {
@@ -355,7 +368,7 @@ public class HpSlider : MonoBehaviour
             }
         }
 
-         if (GameObject.Find("Temperature3").GetComponent<HpSlider>().hp >= 100)
+        if (GameObject.Find("Temperature3").GetComponent<HpSlider>().hp >= 100)
         {
             try
             {
@@ -371,7 +384,7 @@ public class HpSlider : MonoBehaviour
             }
         }
 
-         if (GameObject.Find("Temperature4").GetComponent<HpSlider>().hp >= 100)
+        if (GameObject.Find("Temperature4").GetComponent<HpSlider>().hp >= 100)
         {
             try
             {
@@ -387,7 +400,7 @@ public class HpSlider : MonoBehaviour
             }
         }
 
-         if (GameObject.Find("Temperature5").GetComponent<HpSlider>().hp >= 100)
+        if (GameObject.Find("Temperature5").GetComponent<HpSlider>().hp >= 100)
         {
             try
             {
