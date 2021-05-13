@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class ShareManager : MonoBehaviour
 {
-    private const string subject = "BlackSmithProject";
-    private const string body = "이곳에 url 넣기";
+    private const string subject = "LongFlame";
+    private const string body = "https://play.google.com/store/apps/details?id=com.k27544.BlackSmith";
 
     public void Share()
     {
