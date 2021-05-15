@@ -12,7 +12,7 @@ public class AdsManager : MonoBehaviour
     // 실제 광고 ID
 
 
-    private string rewardTestID = "ca-app-pub-3940256099942544/5224354917";
+    private string rewardID = "ca-app-pub-3940256099942544/5224354917";
     // 테스트 광고 ID, 지금은 테스트를 사용
 
     private RewardedAd rewardedAd;
@@ -26,7 +26,7 @@ public class AdsManager : MonoBehaviour
         //ca-app-pub-3751333748072855~9583494717
         MobileAds.Initialize("ca-app-pub-3940256099942544~3347511713");
         print("1");
-        rewardedAd = new RewardedAd(rewardTestID);
+        rewardedAd = new RewardedAd(rewardID);
         AdRequest request = new AdRequest.Builder().Build();
         print("2");
         rewardedAd.LoadAd(request); // 광고 로드
@@ -76,7 +76,7 @@ public class AdsManager : MonoBehaviour
     public void CreateAndLoadRewardedAd() // 광고 다시 로드하는 함수
     {
         ///Debug.Log("Good Job Hyun Jin !!");
-        rewardedAd = new RewardedAd(rewardTestID);
+        rewardedAd = new RewardedAd(rewardID);
 
         rewardedAd.OnUserEarnedReward += HandleUserEarnedReward;
         rewardedAd.OnAdClosed += HandleRewardedAdClosed;
