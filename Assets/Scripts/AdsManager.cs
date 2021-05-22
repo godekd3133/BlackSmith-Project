@@ -8,11 +8,11 @@ using System;
 
 public class AdsManager : MonoBehaviour
 {
-    // private string rewardID = "ca-app-pub-3751333748072855~9583494717";
+    private string rewardID = "ca-app-pub-3751333748072855/5174859300";
     // 실제 광고 ID
 
 
-    private string rewardID = "ca-app-pub-3940256099942544/5224354917";
+    //private string rewardID = "ca-app-pub-3940256099942544/5224354917";
     // 테스트 광고 ID, 지금은 테스트를 사용
 
     private RewardedAd rewardedAd;
@@ -24,7 +24,7 @@ public class AdsManager : MonoBehaviour
     void Start()
     {
         //ca-app-pub-3751333748072855~9583494717
-        MobileAds.Initialize("ca-app-pub-3940256099942544~3347511713");
+        MobileAds.Initialize("ca-app-pub-3751333748072855~9583494717");
         print("1");
         rewardedAd = new RewardedAd(rewardID);
         AdRequest request = new AdRequest.Builder().Build();

@@ -170,8 +170,8 @@ PlayerSettings:
   applicationIdentifier:
     Android: com.k27544.BlackSmith
   buildNumber: {}
-  AndroidBundleVersionCode: 11
-  AndroidMinSdkVersion: 21
+  AndroidBundleVersionCode: 14
+  AndroidMinSdkVersion: 19
   AndroidTargetSdkVersion: 29
   AndroidPreferredInstallLocation: 1
   aotOptions: 

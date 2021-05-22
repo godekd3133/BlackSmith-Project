@@ -16,10 +16,10 @@ public class GoogleManager : MonoBehaviour
     public HpSlider damage4;
     public HpSlider damage5;
 
-    public int getDamage(HpSlider damage)
+    public float getDamage(HpSlider damage)
     {
 
-        return (int)(damage.damUpaxefl + damage.damUpgoldfl + damage.damUpredfl + damage.damUpsilverfl);
+        return (damage.damUpaxefl + damage.damUpgoldfl + damage.damUpredfl + damage.damUpsilverfl);
     }
 
     void Awake()
@@ -69,7 +69,7 @@ public class GoogleManager : MonoBehaviour
     {
         // 1000점을 등록
         float score = getDamage(damage1) + getDamage(damage2) + getDamage(damage3) + getDamage(damage4) + getDamage(damage5);
-        Social.ReportScore((int)score, GPGSIds.leaderboard_ranking, (bool bSuccess) =>
+        Social.ReportScore((int)(score * 100), GPGSIds.leaderboard_ranking, (bool bSuccess) =>
         {
             if (bSuccess)
             {
